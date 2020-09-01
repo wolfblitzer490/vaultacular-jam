@@ -5,20 +5,7 @@ if onGround and input.keyJump {
 	setThrust(10)
 }
 
-if !onGround {
-	applyThrust()
-	if thrust > 0 {
-		sprite_index = s_jump_up	
-	} else {
-		sprite_index = s_jump_down	
-	}
-	x = groundX
-}
-
-else {
-	x = groundX
-	y = groundY
-}
+if !onGround applyThrust()
 
 var maxMoveSpeed = 5
 
@@ -49,3 +36,19 @@ else {
 }
 
 applyMovement()
+
+if !onGround {
+	x = groundX
+	if thrust > 0 {
+		sprite_index = s_jump_up	
+	} else {
+		sprite_index = s_jump_down	
+	}
+}
+
+else {
+	x = groundX
+	y = groundY
+}
+
+depth = -y

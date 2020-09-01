@@ -8,6 +8,7 @@
     {"id":{"name":"s_box","path":"sprites/s_box/s_box.yy",},"order":4,},
     {"id":{"name":"input","path":"objects/input/input.yy",},"order":2,},
     {"id":{"name":"s_idle","path":"sprites/s_idle/s_idle.yy",},"order":0,},
+    {"id":{"name":"s_player_collision","path":"sprites/s_player_collision/s_player_collision.yy",},"order":6,},
     {"id":{"name":"player","path":"objects/player/player.yy",},"order":5,},
     {"id":{"name":"collision","path":"objects/collision/collision.yy",},"order":6,},
     {"id":{"name":"sound","path":"objects/sound/sound.yy",},"order":3,},

@@ -11,6 +11,8 @@ moveForce = 0
 moveDirection = -1
 thrust = 0
 
+mask_index = s_player_collision
+
 function setThrust(Thrust) {
 	onGround = false
 	thrust = Thrust
