@@ -51,7 +51,13 @@ function applyMovement() {
 					groundX += sign(xx)
 					if map == -1 {
 						map = Map
-						groundY -= Map.z
+						var Done = false
+						var DoneValue = groundY - Map.z
+						while !Done {
+							if place_meeting(groundX, groundY + sign(yy), collision) Done = true
+							if groundY = DoneValue Done = true
+							if !Done groundY -= 1
+						}
 					}
 				}
 
@@ -62,6 +68,36 @@ function applyMovement() {
 					groundY += map.z
 					if groundY > y onGround = false
 					map = -1	
+				}
+			}
+		}
+		
+		else {
+			var Collision = instance_place(groundX + sign(xx), groundY, collision)
+			if Collision.topWall {
+				if z >= Collision.map.z {
+					if map == -1 {
+						map = Collision.map
+						groundY -= map.z
+						while place_meeting(groundX,groundY,Collision) {
+							groundY -= 1	
+						}
+					} else if map == Collision.map {
+						groundY += map.z
+						while place_meeting(groundX,groundY,Collision) {
+							groundY += 1	
+						}
+						if groundY > y onGround = false
+						map = -1	
+					}
+				}
+				else if map == Collision.map {
+					groundY += map.z
+					while place_meeting(groundX,groundY,Collision) {
+						groundY += 1	
+					}
+					if groundY > y onGround = false
+					map = -1
 				}
 			}
 		}

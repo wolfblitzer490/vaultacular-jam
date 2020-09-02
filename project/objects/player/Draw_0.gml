@@ -1,8 +1,10 @@
 //	Draw shadow
 draw_set_color(c_black)
-draw_set_alpha(0.5)
-var Width = 24
-var Height = 8
+var Alpha = 1.25 - (abs(groundY - (y-z)) / 100)
+Alpha = clamp(Alpha, 0.2, 0.75)
+draw_set_alpha(Alpha)
+var Width = 6 + (24 * Alpha)
+var Height = 1 + (8 * Alpha)
 draw_ellipse(groundX-Width,groundY-Height,groundX+Width,groundY+Height,false)
 
 draw_reset()
