@@ -84,8 +84,10 @@ function changeMap(Map) {
 	//	Changing to a map
 	if Map > -1 {
 		
-		if Map.z == -1 and map > -1 {
-			if instance_place(groundX, groundY, map) exit
+		if Map.z == -1 {
+			if rectangle_in_rectangle(bbox_left,bbox_top,bbox_right,bbox_bottom, Map.x,Map.y, Map.x+(sprite_get_width(Map.sprite_index)*Map.image_xscale), Map.y+(sprite_get_height(Map.sprite_index)*Map.image_yscale)) != 1 {
+				exit	
+			}
 		}
 		
 		//	I am stepping down
@@ -183,32 +185,14 @@ function applyMovement() {
 			if Collision.topWall {
 				//	If we are higher than the topWall
 				if z >= Collision.map.z {
-					changeMap(Collision.map)
-					//if map == -1 or map != Collision.map {
-					//	map = Collision.map
-					//	groundY -= map.z
-					//	while place_meeting(groundX,groundY,Collision) {
-					//		groundY -= 1	
-					//	}
-					//	//changeMap(Collision.map) 
-					//} else if map == Collision.map {
-					//	groundY += map.z
-					//	while place_meeting(groundX,groundY,Collision) {
-					//		groundY += 1	
-					//	}
-					//	if groundY > y onGround = false
-					//	map = -1	
-					//	//changeMap(-1)
-					//}
+					if map == -1 or map != Collision.map {
+						changeMap(Collision.map) 
+					} else if map == Collision.map {
+						changeMap(-1)
+					}
 				}
 				else if map == Collision.map {
-					groundY += map.z
-					while place_meeting(groundX,groundY,Collision) {
-						groundY += 1	
-					}
-					if groundY > y onGround = false
-					map = -1
-					//changeMap(-1)
+					changeMap(-1)
 				}
 			}
 		}

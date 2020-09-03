@@ -10,6 +10,14 @@ if on {
 		
 	}
 	
+	if instance_exists(collisionMap) with collisionMap {
+		//	Pit
+		if z == -1 {
+			draw_set_color(c_orange)
+			draw_rectangle(x,y, x+sprite_get_width(sprite_index)*image_xscale, y+sprite_get_height(sprite_index)*image_yscale,false)
+		}
+	}
+	
 draw_reset()
 
 }
