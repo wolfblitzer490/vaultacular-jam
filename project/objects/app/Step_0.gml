@@ -1,7 +1,9 @@
 #region		Camera Zoom
 
-x = player.x
-y = player.y - player.z
+if !player.falling and !player.preFalling {
+	x = player.x
+	y = player.y - player.z
+}
 
 if time.stream < 5 {
 	window_center()	

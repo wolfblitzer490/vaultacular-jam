@@ -1,23 +1,32 @@
 hspd = input.keyRight - input.keyLeft
 vspd = input.keyDown - input.keyUp
 
-if onGround and input.keyJump {
+//if falling {
+//	hspd = 0 
+//	vspd = 0
+//}
+
+if onGround and !falling and input.keyJump {
 	setThrust(10)
 }
 
 if !onGround applyThrust()
+
+if falling fall()
 
 var maxMoveSpeed = 5
 
 //	Inputting movement
 if (hspd != 0 or vspd != 0) {
 	
-	if onGround sprite_index = s_walk
-	if hspd != 0 image_xscale = hspd
+	if onGround and !falling sprite_index = s_walk
+	if hspd != 0 and sign(image_xscale) != sign(hspd) image_xscale = xscale * sign(hspd)
 	image_speed = moveForce / maxMoveSpeed
 	
 	moveDirection = point_direction(0,0,hspd,vspd)
 	moveForce += 0.5
+	
+	if falling moveForce *= xscale
 	
 	moveForce = clamp(moveForce, 0, maxMoveSpeed)
 	
@@ -31,7 +40,7 @@ else {
 		moveForce -= 0.5
 		setForce(moveForce, moveDirection)
 	} else {
-		if onGround sprite_index = s_idle	
+		if onGround and !falling sprite_index = s_idle	
 	}
 }
 
@@ -50,5 +59,7 @@ else {
 	x = groundX
 	y = groundY
 }
+
+
 
 depth = -y
