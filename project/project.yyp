@@ -47,8 +47,8 @@
     "children": [],
   },
   "RoomOrder": [
-    {"name":"Room1","path":"rooms/Room1/Room1.yy",},
     {"name":"RoomForest","path":"rooms/RoomForest/RoomForest.yy",},
+    {"name":"Room1","path":"rooms/Room1/Room1.yy",},
   ],
   "Folders": [
     {"folderPath":"folders/Tile Sets.yy","order":1,"resourceVersion":"1.0","name":"Tile Sets","tags":[],"resourceType":"GMFolder",},
@@ -82,6 +82,13 @@
     {"CopyToMask":-1,"filePath":"datafiles/GMLive","resourceVersion":"1.0","name":"gmlive.html","resourceType":"GMIncludedFile",},
     {"CopyToMask":153157610357391598,"filePath":"datafiles/GMLive","resourceVersion":"1.0","name":"gmlive-server.exe","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles/GMLive","resourceVersion":"1.0","name":"gmlive-server.n","resourceType":"GMIncludedFile",},
+    {"CopyToMask":-1,"filePath":"datafiles/GMLive","resourceVersion":"1.0","name":"neko.dll","resourceType":"GMIncludedFile",},
+    {"CopyToMask":-1,"filePath":"datafiles/GMLive","resourceVersion":"1.0","name":"regexp.ndll","resourceType":"GMIncludedFile",},
+    {"CopyToMask":-1,"filePath":"datafiles/GMLive","resourceVersion":"1.0","name":"std.ndll","resourceType":"GMIncludedFile",},
+    {"CopyToMask":-1,"filePath":"datafiles/GMLive","resourceVersion":"1.0","name":"gmlive-server.exe","resourceType":"GMIncludedFile",},
+    {"CopyToMask":-1,"filePath":"datafiles/GMLive","resourceVersion":"1.0","name":"gcmt-dll.dll","resourceType":"GMIncludedFile",},
+    {"CopyToMask":-1,"filePath":"datafiles/GMLive","resourceVersion":"1.0","name":"gmlive-server.n","resourceType":"GMIncludedFile",},
+    {"CopyToMask":-1,"filePath":"datafiles/GMLive","resourceVersion":"1.0","name":"gmlive.html","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles/GMLive","resourceVersion":"1.0","name":"neko.dll","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles/GMLive","resourceVersion":"1.0","name":"regexp.ndll","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles/GMLive","resourceVersion":"1.0","name":"std.ndll","resourceType":"GMIncludedFile",},
