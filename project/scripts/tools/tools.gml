@@ -70,3 +70,7 @@ function draw_reset() {
 	draw_set_valign(fa_top)
 	
 }
+	
+function create_item(Name) constructor {
+	name = Name
+}
