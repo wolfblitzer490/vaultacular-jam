@@ -72,8 +72,8 @@
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"a097e52b-1799-43b9-909f-e9591a3cdd4a","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
-    "name": "Art",
-    "path": "folders/Art.yy",
+    "name": "Tilesets",
+    "path": "folders/Art/Tilesets.yy",
   },
   "resourceVersion": "1.0",
   "name": "s_tileset",
