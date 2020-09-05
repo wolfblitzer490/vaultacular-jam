@@ -6,22 +6,22 @@ switch(state)
 			vspd = input.keyDown - input.keyUp
 
 			if onGround and !falling and input.keyJump {
-				setThrust(10)
+				setThrust(6)
 			}
 
 			if !onGround applyThrust()
 
 			if falling fall()
 
-			var maxMoveSpeed = 5
+			var maxMoveSpeed = 3
 
 			//	Inputting movement
 			if (hspd != 0 or vspd != 0) {
 	
 				if onGround and !falling {
-					if hspd != 0 and vspd == 0 sprite_index = s_player_side
-					if hspd == 0 and vspd > 0 sprite_index = s_player_front
-					else if vspd < 0 sprite_index = s_player_back
+					if hspd != 0 and vspd == 0 sprite_index = s_player_walk_side
+					if hspd == 0 and vspd > 0 sprite_index = s_player_walk_front
+					else if vspd < 0 sprite_index = s_player_walk_back
 				}
 				if hspd != 0 and sign(image_xscale) != sign(hspd) image_xscale = xscale * sign(hspd)
 				image_speed = moveForce / maxMoveSpeed
@@ -43,7 +43,14 @@ switch(state)
 					moveForce -= 0.5
 					setForce(moveForce, moveDirection)
 				} else {
-					//if onGround and !falling sprite_index = s_idle	
+					if onGround and !falling {
+						switch(sprite_index) {
+							case s_player_walk_front: sprite_index = s_player_idle_front break
+							case s_player_walk_side: sprite_index = s_player_idle_side break
+							case s_player_walk_back: sprite_index = s_player_idle_back break
+						}
+						image_speed = 1
+					}
 				}
 			}
 
@@ -52,9 +59,9 @@ switch(state)
 			if !onGround {
 				x = groundX
 				if thrust > 0 {
-					sprite_index = s_jump_up	
+					//sprite_index = s_jump_up	
 				} else {
-					sprite_index = s_jump_down	
+					//sprite_index = s_jump_down	
 				}
 			}
 

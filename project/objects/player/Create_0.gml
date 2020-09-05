@@ -165,10 +165,16 @@ function applyMovement() {
 		if !place_meeting(groundX + sign(xx), groundY, collision) {
 			if place_meeting(groundX + sign(xx), groundY, collisionMap) {
 				var Map = instance_place(groundX + sign(xx), groundY, collisionMap)
-				if (z >= Map.z or map == Map) {
+				if (z >= Map.z or map == Map) { // and ((groundY + sign(yy)) > Map.y + Map.z)
 					groundX += sign(xx)
 					if map == -1 or (map > -1 and map != Map) {
 						changeMap(Map)
+					}
+				} 
+				//	We're not high enough to enter this map
+				else {
+					if groundY < Map.y + Map.z {
+						groundX += sign(xx)	
 					}
 				}
 			//	Not colliding with collision or a collisionMap
@@ -207,10 +213,14 @@ function applyMovement() {
 					groundY += sign(yy)
 					if !onGround y += sign(yy)
 					if map == -1 or (map > -1 and map != Map) {
-						//map = Map
-						//groundY -= Map.z
 						changeMap(Map)
 					}
+				}
+				//	We're not high enough to enter this map
+				else {
+					if groundY < Map.y + Map.z {
+						groundY += sign(yy)	
+					}					
 				}
 			}
 			//	Not colliding with collision or collisionMap
@@ -218,9 +228,6 @@ function applyMovement() {
 				groundY += sign(yy)
 				if !onGround y += sign(yy)	
 				if map > -1 {
-					//groundY += map.z
-					//if groundY > y onGround = false
-					//map = -1
 					changeMap(-1)
 				}	
 			}
