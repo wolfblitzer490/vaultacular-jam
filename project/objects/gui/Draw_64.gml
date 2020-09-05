@@ -1,5 +1,30 @@
 if live_call() return live_result;
 
+if interactionCooldown >= 0 interactionCooldown--
+
+if interaction {
+	var centerX = display_get_gui_width()/2
+	var centerY = display_get_gui_height()/2
+	
+	draw_set_color(c_black)
+	draw_set_halign(fa_center)
+	draw_set_valign(fa_middle)
+	draw_text(centerX,centerY,"Press <E> to interact")
+	
+	if input.keyInteract and interactionID > -1 and interactionCooldown == -1 and !instance_exists(textbox) {
+		with class_npc {
+			var ID = id
+		}
+		if !instance_exists(textbox) {
+			create_dialogue("My linky stays stinky", ID)
+		}
+	}
+}
+
+draw_reset()
+
+
+
 inventory.x = display_get_gui_width() - inventory.width - 15
 inventory.y = display_get_gui_height() - inventory.height - 15
 

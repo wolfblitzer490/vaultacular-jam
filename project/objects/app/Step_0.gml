@@ -2,7 +2,7 @@
 
 if !player.falling and !player.preFalling {
 	x = player.x
-	y = player.y - player.z
+	y = player.y - player.z - 32
 }
 
 if time.stream < 5 {

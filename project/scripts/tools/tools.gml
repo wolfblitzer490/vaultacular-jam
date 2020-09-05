@@ -74,3 +74,11 @@ function draw_reset() {
 function create_item(Name) constructor {
 	name = Name
 }
+
+function create_dialogue(body_text, ID) {
+	
+	var Box = instance_create_layer(0,0,"Instances",textbox)
+	Box.textComplete = body_text
+	Box.distanceTarget = ID
+	
+}

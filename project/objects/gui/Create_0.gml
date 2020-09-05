@@ -9,3 +9,7 @@ inventory.slots[0] = new create_item("key")
 inventory.slots[1] = new create_item("torch")
 inventory.slots[2] = -1
 inventory.slots[3] = -1
+
+interaction = false
+interactionID = -1
+interactionCooldown = -1
