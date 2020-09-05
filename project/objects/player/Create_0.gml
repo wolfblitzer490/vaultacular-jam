@@ -16,6 +16,7 @@ map = -1
 falling = false
 fallen = false
 preFalling = false
+state = state.free
 
 mask_index = s_player_collision
 
