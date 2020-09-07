@@ -34,9 +34,13 @@ switch(state)
 			if (hspd != 0 or vspd != 0) {
 	
 				if onGround and !falling {
-					if hspd != 0 and vspd == 0 sprite_index = s_player_walk_side
-					if hspd == 0 and vspd > 0 sprite_index = s_player_walk_front
-					else if vspd < 0 sprite_index = s_player_walk_back
+					if vspd == 0 {
+						sprite_index = s_player_walk_side
+					} else {
+						if vspd > 0 sprite_index = s_player_walk_front
+						else sprite_index = s_player_walk_back
+					}
+					
 				}
 				if hspd != 0 and sign(image_xscale) != sign(hspd) image_xscale = xscale * sign(hspd)
 				image_speed = moveForce / maxMoveSpeed
@@ -81,9 +85,9 @@ switch(state)
 			}
 
 			else {
-		x = groundX
-		y = groundY
-	}
+				x = groundX
+				y = groundY
+			}
 		break
 	#endregion
 	
@@ -104,7 +108,5 @@ switch(state)
 		break
 	#endregion
 }
-
-
 
 depth = -y
