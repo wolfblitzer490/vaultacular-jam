@@ -16,3 +16,5 @@ keyRight = keyboard_check(ord("D"))
 keyJump = keyboard_check_pressed(vk_space)
 
 keyInteract = keyboard_check_pressed(ord("E"))
+
+keyAttack = keyboard_check_pressed(ord("Q")) or mouse_check_button_pressed(mb_left)
