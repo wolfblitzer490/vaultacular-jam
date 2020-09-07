@@ -61,9 +61,10 @@ function applyThrust() {
 		}
 		onGround = true
 		y = groundY
-		if !preFalling z = 0
+		//if !preFalling z = 0
 		thrust = 0
-		//if map > -1 and map.z > -1 z = map.z
+		if map > -1 and map.z > -1 z = map.z
+		else z = 0
 	}
 	
 	
@@ -97,59 +98,62 @@ function changeMap(Map) {
 		
 		//	I am stepping down
 		if Z > Map.z {
-			var Done = false
-			var DoneValue = groundY + Z
-			while !Done {
-				if Map.z == -1 {
-					Done = true
-					onGround = false	
-				} else if preFalling {
-					preFalling = false
-				}
-				if place_meeting(groundX, groundY + sign(yy), collision) Done = true
-				if groundY = DoneValue Done = true
-				if !Done groundY += 1
-			}
-			if groundY > y onGround = false
+			//var Done = false
+			//var DoneValue = groundY + Z
+			//while !Done {
+			//	if Map.z == -1 {
+			//		Done = true
+			//		onGround = false	
+			//	} else if preFalling {
+			//		preFalling = false
+			//	}
+			//	if place_meeting(groundX, groundY + sign(yy), collision) Done = true
+			//	if groundY = DoneValue Done = true
+			//	if !Done groundY += 1
+			//}
+			groundY = groundY + Map.z
+			if groundY > y-z onGround = false
 		}
 		//	I am jumping up
 		else {
-			var Done = false
-			var DoneValue = groundY - Map.z
-			while !Done {
-				if Map.z == -1 {
-					Done = true
-					onGround = false
-				} else if preFalling {
-					preFalling = false
-				}
-				if place_meeting(groundX, groundY + sign(yy), collision) Done = true
-				if groundY = DoneValue Done = true
-				if !Done groundY -= 1
-			}
+			//var Done = false
+			//var DoneValue = groundY - Map.z
+			//while !Done {
+			//	if Map.z == -1 {
+			//		Done = true
+			//		onGround = false
+			//	} else if preFalling {
+			//		preFalling = false
+			//	}
+			//	if place_meeting(groundX, groundY + sign(yy), collision) Done = true
+			//	if groundY = DoneValue Done = true
+			//	if !Done groundY -= 1
+			//}
+			groundY = groundY - Map.z
 		}
 		
 	}
 	//	Changing to no map/z = 0
 	else {
-		var Done = false
-		var DoneValue = groundY + Z
-		while !Done {
-			if Z == -1 {
-				Done = true
-				onGround = false
-			} else if preFalling {
-				preFalling = false	
-			}
-			if place_meeting(groundX, groundY + sign(yy), collision) Done = true
-			if groundY = DoneValue Done = true
-			if !Done {
-				if DoneValue > groundY groundY += 1
-				else if DoneValue < groundY groundY -= 1
-			}
-		}
+		//var Done = false
+		//var DoneValue = groundY + Z
+		//while !Done {
+		//	if Z == -1 {
+		//		Done = true
+		//		onGround = false
+		//	} else if preFalling {
+		//		preFalling = false	
+		//	}
+		//	if place_meeting(groundX, groundY + sign(yy), collision) Done = true
+		//	if groundY = DoneValue Done = true
+		//	if !Done {
+		//		if DoneValue > groundY groundY += 1
+		//		else if DoneValue < groundY groundY -= 1
+		//	}
+		//}
+		groundY = groundY + map.z
 
-		if groundY > y onGround = false
+		if groundY > y-z onGround = false
 	}
 	
 	map = Map
@@ -253,7 +257,7 @@ function applyMovement() {
 						while place_meeting(groundX,groundY,Collision) {
 							groundY += 1	
 						}
-						if groundY > y onGround = false
+						if groundY > y-z onGround = false
 						map = -1	
 						//changeMap(-1)
 					}
@@ -263,7 +267,7 @@ function applyMovement() {
 					while place_meeting(groundX,groundY,Collision) {
 						groundY += 1	
 					}
-					if groundY > y onGround = false
+					if groundY > y-z onGround = false
 					map = -1
 					//changeMap(-1)
 				}

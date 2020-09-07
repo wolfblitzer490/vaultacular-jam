@@ -15,13 +15,19 @@ switch(state)
 				state = state.attack
 				switch(sprite_index) {
 					case s_player_idle_front:
-					case s_player_walk_front: sprite_index = s_player_attack_front break
+					case s_player_walk_front: 
+						sprite_index = s_player_attack_front
+						image_xscale *= -1
+					break
 					
 					case s_player_idle_side: 
 					case s_player_walk_side: sprite_index = s_player_attack_side break
 					
 					case s_player_idle_back:
-					case s_player_walk_back: sprite_index = s_player_attack_back break
+					case s_player_walk_back: 
+						sprite_index = s_player_attack_back 
+						image_xscale *= -1
+					break
 					
 				}
 				image_index = 0
@@ -89,9 +95,7 @@ switch(state)
 
 			else {
 				x = groundX
-				y = groundY
-				//if map > -1 y = groundY + map.z
-				//else y = groundY
+				y = groundY + z
 			}
 		break
 	#endregion
