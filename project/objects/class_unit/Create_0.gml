@@ -63,6 +63,7 @@ function applyThrust() {
 		y = groundY
 		if !preFalling z = 0
 		thrust = 0
+		//if map > -1 and map.z > -1 z = map.z
 	}
 	
 	

@@ -20,6 +20,9 @@ switch(state)
 					case s_player_idle_side: 
 					case s_player_walk_side: sprite_index = s_player_attack_side break
 					
+					case s_player_idle_back:
+					case s_player_walk_back: sprite_index = s_player_attack_back break
+					
 				}
 				image_index = 0
 				image_speed = 1
@@ -87,6 +90,8 @@ switch(state)
 			else {
 				x = groundX
 				y = groundY
+				//if map > -1 y = groundY + map.z
+				//else y = groundY
 			}
 		break
 	#endregion
@@ -98,7 +103,7 @@ switch(state)
 				switch(sprite_index) {
 					case s_player_attack_front: sprite_index = s_player_idle_front break
 					case s_player_attack_side: sprite_index = s_player_idle_side break
-					
+					case s_player_attack_back: sprite_index = s_player_idle_back break
 				}
 				
 				state = state.free	
