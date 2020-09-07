@@ -16,9 +16,9 @@ function createSurface() {
 	
 	surface_reset_target()
 	
-	var finalSurface = surface_create(sprite_get_width(sprite_index)*image_xscale, sprite_get_height(sprite_index)*image_yscale)
+	var finalSurface = surface_create(sprite_get_width(sprite_index)*image_xscale, sprite_get_height(sprite_index)*image_yscale + 16)
 	
-	surface_copy_part(finalSurface,0,0, surface, x,y, sprite_get_width(sprite_index)*image_xscale, sprite_get_height(sprite_index)*image_yscale)
+	surface_copy_part(finalSurface,0,0, surface, x,y, sprite_get_width(sprite_index)*image_xscale, sprite_get_height(sprite_index)*image_yscale + 16)
 	
 	var width = surface_get_width(finalSurface)
 	var height = surface_get_height(finalSurface)
