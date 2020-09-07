@@ -218,7 +218,7 @@ function applyMovement() {
 				}
 				//	We're not high enough to enter this map
 				else {
-					if groundY < Map.y + Map.z {
+					if groundY + sign(yy) < Map.y + Map.z {
 						groundY += sign(yy)	
 					}					
 				}

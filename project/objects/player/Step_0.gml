@@ -13,7 +13,7 @@ switch(state)
 
 			if falling fall()
 
-			var maxMoveSpeed = 3
+			var maxMoveSpeed = 2
 
 			//	Inputting movement
 			if (hspd != 0 or vspd != 0) {
