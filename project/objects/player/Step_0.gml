@@ -2,8 +2,8 @@ switch(state)
 {
 	#region Free State
 		case state.free:
-			hspd = input.keyRight - input.keyLeft
-			vspd = input.keyDown - input.keyUp
+			hspd = (input.keyRight - input.keyLeft) + gamepad_axis_value(0, gp_axislh)
+			vspd = (input.keyDown - input.keyUp) + gamepad_axis_value(0, gp_axislv)
 
 			if onGround and !falling and input.keyJump {
 				setThrust(6)
@@ -55,7 +55,7 @@ switch(state)
 				image_speed = moveForce / maxMoveSpeed
 	
 				moveDirection = point_direction(0,0,hspd,vspd)
-				moveForce += 0.5
+				moveForce += 0.15 * clamp(abs(hspd)+abs(vspd),-1,1)
 	
 				if falling moveForce *= xscale
 	

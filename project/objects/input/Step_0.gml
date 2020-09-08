@@ -13,8 +13,8 @@ keyDown = keyboard_check(ord("S"))
 keyLeft = keyboard_check(ord("A"))
 keyRight = keyboard_check(ord("D"))
 
-keyJump = keyboard_check_pressed(vk_space)
+keyJump = keyboard_check_pressed(vk_space) or gamepad_button_check_pressed(0, gp_face1)
 
-keyInteract = keyboard_check_pressed(ord("E"))
+keyInteract = keyboard_check_pressed(ord("E")) or gamepad_button_check_pressed(0, gp_face2)
 
-keyAttack = keyboard_check_pressed(ord("Q")) or mouse_check_button_pressed(mb_left)
+keyAttack = keyboard_check_pressed(ord("Q")) or mouse_check_button_pressed(mb_left) or gamepad_button_check_pressed(0, gp_face3)
