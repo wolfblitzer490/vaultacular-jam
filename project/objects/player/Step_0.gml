@@ -62,6 +62,8 @@ switch(state)
 				moveForce = clamp(moveForce, 0, maxMoveSpeed)
 	
 				setForce(moveForce, moveDirection)
+				
+				//debug.log("Moving at "+string_upper(string(moveForce)) + " force and in "+string_upper(string(moveDirection)) +" direction")
 	
 			}
 			//	Not inputting movement
