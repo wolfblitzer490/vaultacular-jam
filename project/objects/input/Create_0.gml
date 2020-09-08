@@ -18,5 +18,6 @@ keyJump = keyboard_check_pressed(vk_space)
 keyInteract = keyboard_check_pressed(ord("E"))
 
 keyAttack = keyboard_check_pressed(ord("Q")) or mouse_check_button_pressed(mb_left)
+keyAttackHold = keyboard_check(ord("Q")) or mouse_check_button(mb_left) or gamepad_button_check(0,gp_face3)
 
 gamepad_set_axis_deadzone(0, 0.2)

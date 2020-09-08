@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "s_demon",
-    "path": "sprites/s_demon/s_demon.yy",
+    "name": "s_goblin",
+    "path": "sprites/s_goblin/s_goblin.yy",
   },
   "solid": false,
   "visible": true,

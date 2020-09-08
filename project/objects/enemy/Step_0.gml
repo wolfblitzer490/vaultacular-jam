@@ -1,8 +1,9 @@
 if point_distance(x,y, player.x,player.y) < 200 and !damaged {
 	player.mask_index = player.sprite_index
-	if place_meeting(x,y,player) and player.state == state.attack {
+	if place_meeting(x,y,player) and player.state == state.attack and player.attackCharge == -1 {
 		knockbackDirection = point_direction(player.x,player.y, x,y)
 		knockbackForce = 5
+		if player.attackCharged knockbackForce = 5 + 10
 		damaged = true
 		damagedTimer = 30
 		damagedFlash = true

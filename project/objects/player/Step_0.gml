@@ -13,6 +13,7 @@ switch(state)
 			
 			if onGround and input.keyAttack {
 				state = state.attack
+				moveForce = 3
 				switch(sprite_index) {
 					case s_player_idle_front:
 					case s_player_walk_front: 
@@ -84,8 +85,6 @@ switch(state)
 				}
 			}
 
-			applyMovement()
-
 			if !onGround {
 				x = groundX
 				if thrust > 0 {
@@ -104,20 +103,78 @@ switch(state)
 	
 	#region Attack State
 		case state.attack:
+		
+			if attackCharge == -1 {
 			
-			if animation_end {
-				switch(sprite_index) {
-					case s_player_attack_front: sprite_index = s_player_idle_front break
-					case s_player_attack_side: sprite_index = s_player_idle_side break
-					case s_player_attack_back: sprite_index = s_player_idle_back break
+				if animation_end {
+					if !input.keyAttackHold or attackCharged {
+						switch(sprite_index) {
+							case s_player_attack_front: sprite_index = s_player_idle_front break
+							case s_player_attack_side: sprite_index = s_player_idle_side break
+							case s_player_attack_back: sprite_index = s_player_idle_back break
+						}
+				
+						state = state.free	
+						attackCharged = false
+						attackCharge = -1
+					}
+				
+					else {
+						if attackCharge == -1 {
+							switch(sprite_index) {
+								case s_player_attack_side:
+									image_index = 0
+								break
+								case s_player_attack_front:
+									image_xscale *= -1
+									image_index = 0
+								break
+								case s_player_attack_back:
+									image_xscale *= -1
+									image_index = 0
+								break
+							}
+							image_speed = 0
+							attackCharge++
+						}
+					}
+				}
+			}
+			//	Charging attack
+			else {
+				if input.keyAttackHold {
+					image_speed = 0
+					attackCharge++	
+					
+					if attackCharge >= 30 {
+						attackCharged = true
+						image_speed = 1
+						attackCharge = -1
+						setForce(10, moveDirection)
+					}
 				}
 				
-				state = state.free	
+				else {
+					attackCharged = true
+					image_speed = 1
+					attackCharge = -1
+					moveForce = 5
+					//setForce(moveForce, moveDirection)
+				}
 			}
 			
+			if moveForce > 0 {
+				moveForce -= 0.5
+				setForce(moveForce, moveDirection)	
+			}
+			
+			x = groundX
+			y = groundY
 			
 		break
 	#endregion
 }
+
+applyMovement()
 
 depth = -y
