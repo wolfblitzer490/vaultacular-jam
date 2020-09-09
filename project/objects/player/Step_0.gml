@@ -97,7 +97,7 @@ switch(state)
 			else {
 				image_speed = moveForce / maxMoveSpeed
 				if moveForce > 0 {
-					moveForce -= 0.5
+					moveForce -= 0.25
 					setForce(moveForce, moveDirection)
 				} else {
 					if onGround and !falling {
