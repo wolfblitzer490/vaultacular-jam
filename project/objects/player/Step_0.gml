@@ -4,6 +4,30 @@ switch(state)
 		case state.free:
 			hspd = (input.keyRight - input.keyLeft) + gamepad_axis_value(0, gp_axislh)
 			vspd = (input.keyDown - input.keyUp) + gamepad_axis_value(0, gp_axislv)
+			
+			if stamina < staminaMax {
+							
+				//	Determine recharge rate
+				var division = staminaMax / 5
+				if stamina >= division * 4 {
+					staminaRechargeRate = 1
+				} else if stamina >= division * 3 and stamina < division * 4 {
+					staminaRechargeRate = 2
+				} else if stamina >= division * 2 and stamina < division * 3 {
+					staminaRechargeRate = 2	
+				} else if stamina >= division * 1 and stamina < division * 2 {
+					staminaRechargeRate = 4	
+				} else if stamina < division {
+					staminaRechargeRate = 4
+				}
+				
+	
+				staminaRecharge++
+				if staminaRecharge >= staminaRechargeRate {
+					stamina++
+					staminaRecharge = 0
+				}
+			}
 
 			if onGround and !falling and input.keyJump {
 				setThrust(6)
@@ -11,8 +35,10 @@ switch(state)
 
 			if !onGround applyThrust()
 			
-			if onGround and input.keyAttack {
+			var attackStaminaCost = 15
+			if onGround and input.keyAttack and stamina >= attackStaminaCost {
 				state = state.attack
+				stamina -= attackStaminaCost
 				moveForce = 3
 				switch(sprite_index) {
 					case s_player_idle_front:
@@ -84,6 +110,8 @@ switch(state)
 					}
 				}
 			}
+				
+			applyMovement()
 
 			if !onGround {
 				x = groundX
@@ -104,10 +132,11 @@ switch(state)
 	#region Attack State
 		case state.attack:
 		
+			var attackStaminaCost = 30
 			if attackCharge == -1 {
 			
 				if animation_end {
-					if !input.keyAttackHold or attackCharged {
+					if !input.keyAttackHold or attackCharged or stamina < attackStaminaCost {
 						switch(sprite_index) {
 							case s_player_attack_front: sprite_index = s_player_idle_front break
 							case s_player_attack_side: sprite_index = s_player_idle_side break
@@ -150,7 +179,8 @@ switch(state)
 						attackCharged = true
 						image_speed = 1
 						attackCharge = -1
-						setForce(10, moveDirection)
+						moveForce = 5
+						stamina -= attackStaminaCost
 					}
 				}
 				
@@ -159,7 +189,7 @@ switch(state)
 					image_speed = 1
 					attackCharge = -1
 					moveForce = 5
-					//setForce(moveForce, moveDirection)
+					stamina -= attackStaminaCost
 				}
 			}
 			
@@ -168,13 +198,13 @@ switch(state)
 				setForce(moveForce, moveDirection)	
 			}
 			
+			applyMovement()
+			
 			x = groundX
 			y = groundY
 			
 		break
 	#endregion
 }
-
-applyMovement()
 
 depth = -y

@@ -22,6 +22,12 @@ state = state.free
 damaged = false
 damagedTimer = -1
 damagedFlash = false
+hpMax = 5
+hp = hpMax
+staminaRecharge = -1
+staminaRechargeRate = 5
+staminaMax = 100
+stamina = staminaMax
 
 function setThrust(Thrust) {
 	onGround = false

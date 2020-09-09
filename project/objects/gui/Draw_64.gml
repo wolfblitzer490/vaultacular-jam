@@ -23,6 +23,29 @@ if interaction {
 
 draw_reset()
 
+////	Player Health and Stamina
+var healthX = 15
+var healthY = 15
+var healthWidthContainer = 32
+var healthHeightContainer = 140
+var healthHeightBar = (player.hp / player.hpMax) * healthHeightContainer
+draw_set_color(c_black)
+draw_roundrect(healthX,healthY,healthX+healthWidthContainer,healthY+healthHeightContainer,true)
+draw_set_color(c_red)
+draw_roundrect(healthX,healthY,healthX+healthWidthContainer,healthY+healthHeightBar,false)
+
+var staminaX = healthX + healthWidthContainer + 8
+var staminaY = healthY
+var staminaWidthContainer = 32
+var staminaHeightContainer = 140
+var staminaHeightBar = (player.stamina / player.staminaMax) * staminaHeightContainer
+draw_set_color(c_black)
+draw_roundrect(staminaX,staminaY,staminaX+staminaWidthContainer,staminaY+staminaHeightContainer,true)
+draw_set_color(c_green)
+draw_roundrect(staminaX,staminaY,staminaX+staminaWidthContainer,staminaY+staminaHeightBar,false)
+
+
+
 
 
 inventory.x = display_get_gui_width() - inventory.width - 15
