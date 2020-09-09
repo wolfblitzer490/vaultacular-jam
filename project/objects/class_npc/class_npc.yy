@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "s_pepe",
-    "path": "sprites/s_pepe/s_pepe.yy",
+    "name": "s_granny",
+    "path": "sprites/s_granny/s_granny.yy",
   },
   "solid": false,
   "visible": true,

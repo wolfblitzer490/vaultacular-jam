@@ -16,9 +16,20 @@ if interaction {
 			var ID = id
 		}
 		if !instance_exists(textbox) {
-			create_dialogue("My linky stays stinky", ID)
+			var String = ID.dialogue[ID.dialogueIndex][0]
+			var Next = ID.dialogue[ID.dialogueIndex][1]
+			create_dialogue(String, ID, Next)
 		}
 	}
+	draw_health = false
+	draw_stamina = false
+	draw_inventory = false
+}
+
+else {
+	draw_health = true
+	draw_stamina = true
+	draw_inventory = true	
 }
 
 draw_reset()
@@ -29,35 +40,36 @@ var healthY = 15
 var healthWidthContainer = 32
 var healthHeightContainer = 140
 var healthHeightBar = (player.hp / player.hpMax) * healthHeightContainer
-draw_set_color(c_black)
-draw_roundrect(healthX,healthY,healthX+healthWidthContainer,healthY+healthHeightContainer,true)
-draw_set_color(c_red)
-draw_roundrect(healthX,healthY,healthX+healthWidthContainer,healthY+healthHeightBar,false)
+if draw_health { 
+	draw_set_color(c_black)
+	draw_roundrect(healthX,healthY,healthX+healthWidthContainer,healthY+healthHeightContainer,true)
+	draw_set_color(c_red)
+	draw_roundrect(healthX,healthY,healthX+healthWidthContainer,healthY+healthHeightBar,false)
+}
 
 var staminaX = healthX + healthWidthContainer + 8
 var staminaY = healthY
 var staminaWidthContainer = 32
 var staminaHeightContainer = 140
 var staminaHeightBar = (player.stamina / player.staminaMax) * staminaHeightContainer
-draw_set_color(c_black)
-draw_roundrect(staminaX,staminaY,staminaX+staminaWidthContainer,staminaY+staminaHeightContainer,true)
-draw_set_color(c_green)
-draw_roundrect(staminaX,staminaY,staminaX+staminaWidthContainer,staminaY+staminaHeightBar,false)
+if draw_stamina {
+	draw_set_color(c_black)
+	draw_roundrect(staminaX,staminaY,staminaX+staminaWidthContainer,staminaY+staminaHeightContainer,true)
+	draw_set_color(c_green)
+	draw_roundrect(staminaX,staminaY,staminaX+staminaWidthContainer,staminaY+staminaHeightBar,false)
+}
 
+if draw_inventory {
+	inventory.x = display_get_gui_width() - inventory.width - 15
+	inventory.y = display_get_gui_height() - inventory.height - 15
 
+	draw_set_color(c_yellow)
+	draw_rectangle(inventory.x,inventory.y, inventory.x+inventory.width,inventory.y+inventory.height,false)
 
-
-
-inventory.x = display_get_gui_width() - inventory.width - 15
-inventory.y = display_get_gui_height() - inventory.height - 15
-
-draw_set_color(c_yellow)
-draw_rectangle(inventory.x,inventory.y, inventory.x+inventory.width,inventory.y+inventory.height,false)
-
-//	Draw inventory boxes
-var xx = inventory.x
-var yy = inventory.y
-for(var i=0;i<4;i++) {
+	//	Draw inventory boxes
+	var xx = inventory.x
+	var yy = inventory.y
+	for(var i=0;i<4;i++) {
 	var Name = ""
 	//	Empty slot
 	if inventory.slots[i] == -1 {
@@ -93,6 +105,8 @@ for(var i=0;i<4;i++) {
 	if i == 2 {
 		xx += (inventory.width/2)	
 	}
+	
+}
 	
 }
 

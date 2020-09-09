@@ -13,3 +13,10 @@ inventory.slots[3] = -1
 interaction = false
 interactionID = -1
 interactionCooldown = -1
+
+
+
+//	APIs
+draw_health = true
+draw_stamina = true
+draw_inventory = true

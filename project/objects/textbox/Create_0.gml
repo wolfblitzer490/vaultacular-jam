@@ -11,6 +11,8 @@ textScrolling = true
 
 responses = []
 
+next = -1
+
 function scroll() {
 	if textTimer <= 0 {
 		textTimer = textTimerMax

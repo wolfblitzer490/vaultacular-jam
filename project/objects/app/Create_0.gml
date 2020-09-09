@@ -77,3 +77,11 @@ function cameraSetup() {
 }
 	
 cameraSetup()
+
+dialogueGrid = load_csv("GAMEJAM_Dialogue_CSV.csv")
+
+var width = ds_grid_width(dialogueGrid)
+var height = ds_grid_height(dialogueGrid)
+debug.log("dialogueGrid is "+string_upper(string(width))+" by "+string_upper(string(height))) 
+
+debug_GOBLIN_ATTACK = false

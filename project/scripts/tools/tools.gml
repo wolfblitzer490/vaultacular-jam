@@ -75,10 +75,36 @@ function create_item(Name) constructor {
 	name = Name
 }
 
-function create_dialogue(body_text, ID) {
+function create_dialogue(body_text, ID, Next) {
 	
 	var Box = instance_create_layer(0,0,"Instances",textbox)
 	Box.textComplete = body_text
 	Box.distanceTarget = ID
+	Box.next = Next
+	
+}
+
+function load_dialogue(stringID) {
+	
+	var width = ds_grid_width(app.dialogueGrid)
+	var height = ds_grid_height(app.dialogueGrid)
+	var DialogueIndex = 0
+	var Dialogue = []
+	for(var i=0;i<height;i++) {
+		var key = app.dialogueGrid[# 0, i]
+		var next = app.dialogueGrid[# 1, i]
+		var String = app.dialogueGrid[# 2, i]
+		
+		//	This dialogue is mine!
+		if is_string(key) and !string_length(key) == 0 and string_count(stringID,key) > 0 {
+			Dialogue[DialogueIndex][0] = String
+			if sign(real(next)) == -1 {
+				Dialogue[DialogueIndex][1] = real(next) + 1	
+			} else Dialogue[DialogueIndex][1] = real(next) - 1
+			DialogueIndex++
+		}
+	}
+	
+	return Dialogue
 	
 }

@@ -9,6 +9,7 @@ if responseCount > 0 {
 	}
 }
 
+draw_set_font(fnt_dialogue)
 var width = string_width(textComplete) + 32
 var height = string_height(textComplete) + 32 + (responseCount * 48)
 
@@ -23,6 +24,8 @@ draw_roundrect(X,Y, X+width,Y+height, false)
 
 draw_set_color(c_white)
 draw_text(X+15,Y+15,textCurrent)
+
+draw_reset()
 
 //	Draw responses
 if responseCount > 0 {

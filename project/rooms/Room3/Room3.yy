@@ -77,6 +77,7 @@
         {"properties":[],"isDnd":false,"objectId":{"name":"collision","path":"objects/collision/collision.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":2.5,"scaleY":0.5,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":144.0,"y":720.0,"resourceVersion":"1.0","name":"inst_4A2A6DE9","tags":[],"resourceType":"GMRInstance",},
         {"properties":[],"isDnd":false,"objectId":{"name":"collision","path":"objects/collision/collision.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":0.5,"scaleY":0.25,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":304.0,"y":736.0,"resourceVersion":"1.0","name":"inst_4810A771","tags":[],"resourceType":"GMRInstance",},
         {"properties":[],"isDnd":false,"objectId":{"name":"collision","path":"objects/collision/collision.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":0.25,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":336.0,"y":752.0,"resourceVersion":"1.0","name":"inst_8B2C2FF","tags":[],"resourceType":"GMRInstance",},
+        {"properties":[],"isDnd":false,"objectId":{"name":"class_npc","path":"objects/class_npc/class_npc.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":288.0,"y":304.0,"resourceVersion":"1.0","name":"inst_3BAF88D","tags":[],"resourceType":"GMRInstance",},
       ],"visible":true,"depth":100,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":16,"gridY":16,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Collision","tags":[],"resourceType":"GMRInstanceLayer",},
     {"tilesetId":{"name":"Tileset_Forest","path":"tilesets/Tileset_Forest/Tileset_Forest.yy",},"x":0,"y":0,"tiles":{"SerialiseWidth":86,"SerialiseHeight":48,"TileSerialiseData":[
 32,29,16,16,29,32,29,16,29,32,16,29,55,45,44,45,44,45,44,45,44,45,44,45,44,45,56,29,16,29,16,29,32,98,96,97,16,32,29,55,44,45,44,45,44,45,44,45,44,45,44,45,44,45,44,45,44,45,44,45,44,45,56,28,28,16,28,98,16,28,28,32,28,28,96,97,16,28,32,55,44,45,44,45,44,56,
@@ -245,6 +246,7 @@
     {"name":"inst_4A2A6DE9","path":"rooms/Room3/Room3.yy",},
     {"name":"inst_4810A771","path":"rooms/Room3/Room3.yy",},
     {"name":"inst_8B2C2FF","path":"rooms/Room3/Room3.yy",},
+    {"name":"inst_3BAF88D","path":"rooms/Room3/Room3.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,
