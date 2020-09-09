@@ -13,9 +13,9 @@ if on {
 	
 	////	DEBUG MENU
 	var menu = {
-		width: 200,
+		width: 300,
 		height: 100,
-		x: 640 - 200 - 16,
+		x: 640 - 300 - 16,
 		y: 30,
 	}
 	
@@ -24,13 +24,14 @@ if on {
 	
 	var bX = menu.x + 15
 	var bY = menu.y + 15
-	var bWidth = 90
+	var bWidth = 200
 	var bHeight = 30
 	if point_in_rectangle(mouse_gui_x,mouse_gui_y,bX,bY,bX+bWidth,bY+bHeight) {
 		draw_set_color(c_ltgray)
 		if input.mouseLeftPress {
 			app.debug_GOBLIN_ATTACK = true
 			class_npc.dialogueIndex = 7
+			class_npc.sprite_index = s_granny_devious
 		}
 	}
 	else {
@@ -40,6 +41,6 @@ if on {
 	draw_set_color(c_white)
 	draw_set_halign(fa_center)
 	draw_set_valign(fa_middle)
-	draw_text(bX+bWidth/2,bY+bHeight/2,"AHHHHH")
+	draw_text(bX+bWidth/2,bY+bHeight/2,"ADVANCE GOBLIN QUEST")
 	
 }
