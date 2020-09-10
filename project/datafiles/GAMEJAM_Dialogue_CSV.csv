@@ -1,11 +1,11 @@
 ﻿NPC KEY,NEXT,Shopkeeper
 Shop1,2,"Greetings... Commerce Badge, please."
-Shop2,3,Oh… you don't have a Commerce Badge.
+Shop2,3,Oh... you don't have a Commerce Badge.
 Shop3,4,You can't shop here without a Commerce Badge.
 Shop4,5,You'll have to talk to Minister Northrup about getting a Commerce Badge.
-Shop5,6,"Oh, that's right… Minister Northrup is away at the hot springs spa up in the mountains."
+Shop5,6,"Oh, that's right... Minister Northrup is away at the hot springs spa up in the mountains."
 Shop6,7,There's not much I can do for you until the minister gets back from his vacation.
-Shop7,-6,It sure is hard to walk away from those hot springs…
+Shop7,-6,It sure is hard to walk away from those hot springs...
 ,,[repeat 6; new strings after goblin attack is repelled]
 Shop8,9,I can't believe the state of things around here!
 Shop9,10,Don't look at me like that. I brought this wine from home. It's considered rustic to drink from the bottle!
