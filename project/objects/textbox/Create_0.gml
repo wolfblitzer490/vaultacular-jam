@@ -1,7 +1,7 @@
 textComplete = ""
 textCurrent = ""
 
-textTimerMax = 2
+textTimerMax = 1
 textTimer = -1
 textIndex = 1
 
